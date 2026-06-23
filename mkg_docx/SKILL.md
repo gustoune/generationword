@@ -19,18 +19,17 @@ fiable d'obtenir un rendu correct.
 
 ## Prérequis & installation
 
-Le package n'est pas sur PyPI : il est fourni en archive. Dans une session Claude,
-le déposer dans le répertoire de travail puis l'ajouter au `PYTHONPATH`.
+Le package est hébergé sur GitHub (dépôt public). Dans une session Claude avec
+code execution, l'installer directement :
 
 ```bash
-# si fourni en zip
-unzip -q mkg_docx.zip -d /home/claude/
-cd /home/claude
-python3 -c "import mkg_docx; print('OK')"   # python-docx & Pillow sont préinstallés
+pip install git+https://github.com/gustoune/generationword.git --break-system-packages -q
+python3 -c "import mkg_docx; print('OK')"   # python-docx & Pillow tirés automatiquement
 ```
 
-Dépendances : `python-docx`, `Pillow`. Si absentes :
-`pip install python-docx Pillow --break-system-packages -q`.
+Les logos MKG sont embarqués dans le package (package data) : aucun asset à fournir.
+Pour mettre le moteur à jour, pousser sur le dépôt puis réinstaller avec
+`--force-reinstall`.
 
 > **Police.** La charte impose **Segoe UI**. Les pages « brand » (couverture,
 > intercalaires, fin) sont rasterisées en image : sans les fichiers Segoe UI dans
