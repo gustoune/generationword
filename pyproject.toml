@@ -25,4 +25,4 @@ include-package-data = true
 include = ["mkg_docx*"]
 
 [tool.setuptools.package-data]
-mkg_docx = ["assets/*", "fonts/*"]
+mkg_docx = ["assets/*", "fonts/*", "SKILL.md", "*.md"]
