@@ -21,15 +21,25 @@ import re
 _DASH_RE = re.compile("[\u2010-\u2015\u2212]")
 
 # Pictogrammes / emoji a supprimer. On conserve volontairement les etoiles
-# pleines / vides (U+2605 / U+2606) utilisees pour le classement hotelier en
-# fractionnant le bloc << Miscellaneous Symbols >> autour d'elles.
+# pleines / vides (U+2605 / U+2606) utilisees pour le classement hotelier, ainsi
+# que le point median U+00B7 (separateur de charte) qui n'appartient a aucune
+# plage ci-dessous. On couvre emoji, fleches, formes geometriques (puces
+# carrees/rondes/triangulaires), symboles divers et techniques, dingbats, et les
+# puces de la plage Ponctuation generale, en fractionnant autour des etoiles.
 _EMOJI_RE = re.compile(
     "["
-    "\U0001F000-\U0001FAFF"   # emoji, pictogrammes, transport, symboles etendus
+    "\U00002022\U00002023\U00002043\U0000204C\U0000204D"  # puces . ‣ ⁃ ⁌ ⁍
+    "\U00002190-\U000021FF"   # fleches (-> <- up down, etc.)
+    "\U00002219"              # operateur puce ∙
+    "\U00002300-\U000023FF"   # symboles techniques divers
+    "\U00002460-\U000024FF"   # alphanumeriques encadres (① ② ...)
+    "\U000025A0-\U000025FF"   # formes geometriques (puces . . . carres, ronds)
     "\U00002600-\U00002604"   # symboles divers (avant l'etoile pleine)
     "\U00002607-\U000026FF"   # symboles divers (apres l'etoile vide)
     "\U00002700-\U000027BF"   # dingbats
+    "\U00002900-\U0000297F"   # fleches supplementaires B
     "\U00002B00-\U00002BFF"   # symboles et fleches divers (etoiles emoji, etc.)
+    "\U0001F000-\U0001FAFF"   # emoji, pictogrammes, transport, symboles etendus
     "\U0000FE00-\U0000FE0F"   # selecteurs de variation (presentation emoji)
     "\U0000200D"              # liant sans largeur (sequences emoji)
     "]+",

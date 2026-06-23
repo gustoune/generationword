@@ -110,9 +110,12 @@ class MKGDocument:
     def _run(self, para, text, *, weight="regular", size=charte.SIZE_BODY,
              color=charte.INK, italic=False, upper=False, tracking_em=0.0,
              raw=False):
-        # Assainissement editorial (tirets / pictos) sauf glyphes de charte (raw).
-        if not raw:
-            text = sanitize.clean(text)
+        # Assainissement editorial systematique (tirets cadratins -> trait
+        # d'union, pictos hors etoile supprimes). `raw` est conserve pour
+        # compatibilite d'appel mais n'exonere plus du nettoyage : aucun glyphe
+        # de charte n'etant un cadratin, l'invariant << zero tiret typographique,
+        # un seul picto (l'etoile) >> est garanti sur 100 % des runs.
+        text = sanitize.clean(text)
         if upper:
             text = text.upper()
         run = para.add_run(text)
@@ -356,8 +359,9 @@ class MKGDocument:
                 lead, text = "", str(it)
             p = self._p(space_after=3, line=charte.LINE_BODY)
             p.paragraph_format.left_indent = Mm(5)
-            p.paragraph_format.first_line_indent = Mm(-3)
-            self._run(p, "\u2014  ", weight="semibold", color=charte.BLUE_DEEP, raw=True)
+            p.paragraph_format.first_line_indent = Mm(-4)
+            self._run(p, charte.BULLET + "  ", weight="semibold",
+                      size=charte.SIZE_SMALL, color=charte.ELECTRIC)
             if lead:
                 self._run(p, lead.rstrip() + " ", weight="semibold", color=charte.INK)
             self._run(p, text, size=charte.SIZE_BODY, color=charte.INK)
@@ -436,9 +440,8 @@ class MKGDocument:
         """entries : [{term, definition}]"""
         for e in entries:
             p = self._p(space_after=5, line=charte.LINE_BODY)
-            self._run(p, e.get("term", ""), weight="bold", size=charte.SIZE_BODY,
-                      color=charte.BLUE_DEEP)
-            self._run(p, " \u2014 ", size=charte.SIZE_BODY, color=charte.INK, raw=True)
+            self._run(p, e.get("term", "") + "  ", weight="bold",
+                      size=charte.SIZE_BODY, color=charte.BLUE_DEEP)
             self._run(p, e.get("definition", ""),
                       size=charte.SIZE_BODY, color=charte.INK)
 

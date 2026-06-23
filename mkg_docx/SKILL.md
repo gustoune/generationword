@@ -17,6 +17,35 @@ valeur de charte en dur.
 **Avant d'écrire du code, lire ce fichier en entier.** C'est la seule façon
 fiable d'obtenir un rendu correct.
 
+## Règles express (charte V6)
+
+- **Police** : Segoe UI uniquement (jamais Inter/Roboto/Arial). Repli image si
+  les `.ttf` manquent dans `fonts/`, le texte natif reste en Segoe UI.
+- **Couleurs** (toutes dans `charte.py`, jamais en dur) : encre corps
+  `#2D3A5E` (navy, jamais de noir pur), bleu profond `#0131B4` (titres + chiffres
+  clés), électrique `#1F66F6` (accents + en-têtes de tableaux), dark `#0A0E1E`
+  (couvertures/transitions), bleu MKG logo `#0634AC`. Le bleu couvre au plus
+  ~15-25 % d'une page.
+- **Tableaux** : en-tête `#1F66F6`, texte blanc capitales tracké ; lignes
+  alternées `#EEF1FC` / `#E6EEFE` ; chiffres clés en `#0131B4` gras.
+- **Eyebrows** : toujours CAPITALES + interlettrage, couleur bleu profond.
+- **Logo sur fond bleu/sombre/photo** : jamais le logo seul ni en noir, toujours
+  le logo bleu dans un cartouche blanc arrondi (géré par le moteur).
+- **Langue** : français, B2B formel. Notation française (`78,3 %`, `3 241`,
+  `4,5 M€`).
+- **Rédaction (deux interdits stricts, appliqués automatiquement par
+  `sanitize.py`)** :
+  1. **Aucun tiret typographique** (cadratin `—`, demi-cadratin `–`, signe
+     moins). Tout est normalisé en trait d'union simple. Côté agent : ne pas
+     écrire de `—` dans les specs, et **ne pas employer de tiret comme
+     remplissage** (cellule vide → laisser vide ou « à préciser »), ni comme
+     ponctuation de liaison.
+  2. **Un seul pictogramme autorisé : l'étoile** (`★` = `charte.STAR`, classement
+     hôtelier et marqueur de puce). Tout autre picto / emoji / flèche / puce est
+     supprimé automatiquement.
+- Ne jamais régénérer cartes géographiques, logos partenaires ou photos
+  (assets propriétaires MKG).
+
 ## Prérequis & installation
 
 Le package est hébergé sur GitHub (dépôt public). Dans une session Claude avec
@@ -126,3 +155,8 @@ Le contrat complet est documenté en tête de `spec.py`.
 4. Orientation `paysage` pour les documents à tableaux larges (comptes
    d'exploitation multi-années), `portrait` par défaut.
 5. Privilégier la **spec JSON** : c'est le contrat conçu pour un agent.
+6. **Discipline éditoriale** (garantie par `sanitize.py`, à respecter aussi
+   en amont) : aucun tiret cadratin/demi-cadratin dans la rédaction, et l'étoile
+   pour seul pictogramme (puces et classement). Les puces sont des étoiles
+   (`charte.BULLET`) ; ne jamais réintroduire `—` comme puce, séparateur ou
+   remplissage.

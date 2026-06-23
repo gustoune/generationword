@@ -39,6 +39,16 @@ DANGER = "DC2626"
 DARK_POS = "4ADE80"
 DARK_NEG = "F87171"
 
+# ============================================================
+# GLYPHES
+# ============================================================
+# Regle editoriale MKG : un seul pictogramme autorise dans toute la
+# redaction, l'etoile (U+2605), qui est aussi le glyphe de classement
+# hotelier. Aucun tiret cadratin/demi-cadratin, aucune autre puce ou
+# fleche. Le moteur ne doit donc emettre que ce glyphe comme marqueur.
+STAR = "\u2605"          # etoile pleine - seul picto admis
+BULLET = STAR            # marqueur de puce (etoile)
+
 
 def rgb(hex_str: str) -> RGBColor:
     return RGBColor.from_string(hex_str)
