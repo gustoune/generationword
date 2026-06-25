@@ -3,26 +3,29 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mkg-docx"
-version = "1.0.0"
-description = "Generation de documents Word a la charte MKG Consulting (V6)."
+name = "mkg-suite"
+version = "2.0.0"
+description = "Generation de documents Word (.docx) et presentations PowerPoint (.pptx) a la charte MKG Consulting."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "Proprietary" }
 authors = [{ name = "MKG Consulting" }]
 dependencies = [
     "python-docx>=1.0",
+    "python-pptx>=0.6.23",
     "Pillow>=9.0",
 ]
 
 [project.scripts]
 mkg-docx = "mkg_docx.cli:main"
+mkg-pptx = "mkg_pptx.cli:main"
 
 [tool.setuptools]
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["mkg_docx*"]
+include = ["mkg_docx*", "mkg_pptx*"]
 
 [tool.setuptools.package-data]
 mkg_docx = ["assets/*", "fonts/*", "SKILL.md", "*.md"]
+mkg_pptx = ["assets/*", "fonts/*", "examples/*", "SKILL.md", "*.md"]

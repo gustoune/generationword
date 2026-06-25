@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "doc_line": "MKG Consulting \u00b7 Etude d'implantation \u00b7 Aix-les-Bains \u00b7 2025",
+    "scale": 2,
+    "grain": true
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "Etude d'implantation hoteliere",
+      "eyebrow": "MKG \u00b7 Rapport d'etude \u00b7 2025",
+      "subtitle": "Residence les Aigues Blanches - Aix-les-Bains, Savoie",
+      "meta": [["Client", "Turenne Hotellerie"], ["Date", "Novembre 2025"],
+               ["Auteur", "Sylvie Bergeret, MRICS"], ["Reference", "MKG-2025-AIX-001"]],
+      "kpis": [{"value": "84", "label": "Appartements"},
+               {"value": "4,5 Meur", "label": "Valeur actuelle"},
+               {"value": "13,2 Meur", "label": "Valeur potentielle"}],
+      "footer_note": "Document confidentiel \u00b7 Usage exclusif"
+    },
+    {
+      "type": "agenda",
+      "title": "Sommaire",
+      "eyebrow": "Plan du rapport",
+      "subtitle": "Etude d'implantation hoteliere \u00b7 Aix-les-Bains",
+      "items": [
+        {"title": "Analyse de l'environnement", "desc": "Profil, localisation, economie"},
+        {"title": "Marche hotelier", "desc": "Offre, demande, performances"},
+        {"title": "Evaluation financiere", "desc": "Methodologie et valorisation"},
+        {"title": "Conclusions", "desc": "Synthese et recommandations"}
+      ]
+    },
+    {
+      "type": "section",
+      "number": "01",
+      "title": "Marche hotelier",
+      "eyebrow": "Chapitre 1 - Analyse",
+      "desc": "Offre concurrentielle, performances et segmentation de la clientele.",
+      "toc": [{"label": "Marche hotelier", "active": true}, {"label": "Evaluation"}]
+    },
+    {
+      "type": "content",
+      "eyebrow": "Chapitre 01 - Marche hotelier",
+      "title": "Offre concurrentielle",
+      "badge": "Novembre 2025",
+      "body": {
+        "type": "table",
+        "headers": ["Etablissement", "Categorie", "RevPAR", "Occ.", "Var."],
+        "aligns": ["left", "key", "key", "right", "pos"],
+        "rows": [
+          ["Hotel du Lac", "4* Milieu", "118eur", "76%", "+4,2%"],
+          ["Domaine Thermal", "3* Eco.", "84eur", "71%", "-1,8%"],
+          ["Chateau des Bains", "5* Luxe", "215eur", "82%", "+9,7%"]
+        ],
+        "footer": ["Moyenne marche", "", "117eur", "72%", "+2,8%"]
+      }
+    },
+    {
+      "type": "stat",
+      "number": "+6,2",
+      "unit": "%",
+      "eyebrow": "Croissance annuelle du marche",
+      "desc": "Progression du tourisme thermal dans la zone de chalandise.",
+      "source": "Source : Observatoire MKG \u00b7 2025"
+    },
+    {
+      "type": "closing",
+      "title": "Discutons de votre projet",
+      "eyebrow": "Conclusions",
+      "subtitle": "MKG Consulting accompagne votre strategie d'implantation.",
+      "contacts": [{"label": "Contact", "name": "Sylvie Bergeret",
+                    "role": "Directrice | MRICS", "lines": ["contact@mkg-consulting.com"]}]
+    }
+  ]
+}
